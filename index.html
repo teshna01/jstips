@@ -2,58 +2,28 @@
 <html>
 <head>
 	<title>test for js learning</title>
+  <script type="text/javascript" src="js/tips.js"></script>
 </head>
 <body>
    <h2>this is personal js tips </h2>
    <p> ple</p>
    <script type="text/javascript">
 
-   	
-    example(null,'AA');
-    example(null,function(err){ });
-    example(null,'AA',function(err){ });
-    example(null,'AA','BB',function(err){ });
-
-   	 function example(err, optionalA,optionalB,callback){
-   	 	var args=new Array(arguments.length);
-	 	for(var i=0;i< args.length; ++i){
-	 		args[i]=arguments[i];
-	 	}
-
-	 	err=args.shift();
-
-	 	if(typeof args[args.length-1]==='function'){
-	 		callback=args.pop();
-	 	}
-
-	 	if(args.length>0) optionalA=args.shift(); else optionalA=null;
-	 	if(args.length>0) optionalB=args.shift(); else optionalB=null;
-
-	 	if(err){
-	 		return callback && callback(err);
-	 	}
-
-	 	console.log('optionalA:', optionalA);
-        console.log('optionalB:', optionalB);
-        console.log('callback:', callback);
-   	 }
-   	  
-
-   	  // dont support ie9< 
-   	  
-   	  // function example_ES6(...args){
-      // const err=args.shift();
-      // const callback=(typeof args[args.length-1]=='function')? args.pop() : null;
-      // const optionalA=(args.length>0) ? args.shift() : null;
-      // const optionalB=(args.length>0)? args.shift(): null;
-
-      // if(err && callback) return callback(err);
-
-      // console.log('optionalA:', optionalA);
-      //   console.log('optionalB:', optionalB);
-      //   console.log('callback:', callback);
-   	  // }
-
+ /*
+  * tip01: obtain optional arguments in function
+ */
+   	optArguments(null,'AA');
+    optArguments(null,function(err){ });
+    optArguments(null,'AA',function(err){ });
+    optArguments(null,'AA','BB',function(err){ });
+    // with ES6
+    // optArguments_ES6(null,'AA');
+    // optArguments_ES6(null,function(err){ });
+    // optArguments_ES6(null,'AA',function(err){ });
+    // optArguments_ES6(null,'AA','BB',function(err){ });
+ /*
+  * tip02: obtain optional arguments in function
+ */
 
    	  
    </script>
